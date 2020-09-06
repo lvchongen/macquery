@@ -20,7 +20,7 @@ python queryMac.py mac-address  # like 44:38:39:ff:ef:57
 
 After running the scripts and pass the mac-address, it would give up results as below:
 
-![mac_real_result](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_real_result.png?imageMogr2/format/tpg)
+![mac_real_result](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_real_result.png)
 
 
 ##### Virtual Python Environment
@@ -78,7 +78,7 @@ docker run --rm testpython:latest mac-address  # like 44:38:39:ff:ef:57
 
 After running the container it would give us results and delete the unused container.
 
-![mac_docker](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_docker.png?imageMogr2/format/tpg)
+![mac_docker](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_docker.png)
 
 
 
@@ -92,11 +92,11 @@ People can access the website [macaddress.io](https://macaddress.io) and search 
 
 *	Open the URL in browser and input the MAC address in the serach field.
 
-	![mac_interface](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_interface.png?imageMogr2/format/tpg)
+	![mac_interface](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_interface.png)
 	
 *	After click the search button, the browser will give user all informaction about the mac address in redirected url.
 
-	![mac_info](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_info.png?imageMogr2/format/tpg)
+	![mac_info](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_info.png)
 	
 	 
 	
@@ -105,24 +105,24 @@ People can access the website [macaddress.io](https://macaddress.io) and search 
 
 1.	We can use develop tools to capture the http request and response in Chrome. After clicking the search button, the website will request this api as below.
 
-	![mac_request](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_request.png?imageMogr2/format/tpg)
+	![mac_request](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_request.png)
 	
 2.	The post request need two major parameters: **_token** and **mac-address-value**. The **mac-address-value** is provided by user, and I need to know where is the **_token**. Actually, the token should be genearted by backend because token is the key to access backend. So I try to find it in source code of the html. And the token will be changed every time of accessing.
 
-	![mac_source](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_source.png?imageMogr2/format/tpg)
+	![mac_source](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_source.png)
 	
 3. From a safety perspective, the backend should know whether the request has permission. In this website the cookie is the major key. We can get the cookie infomation from first response header as below.
 	
-	![mac_cookie](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_cookie.png?imageMogr2/format/tpg)
+	![mac_cookie](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_cookie.png)
 
 	
 4. After accessing the API **mac-address-lookup**, browser will navigate to redirected url that contains the search results. The status code of http is used to describe the redirect。
 
-	![mac_redirect](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_redirect.png?imageMogr2/format/tpg)
+	![mac_redirect](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_redirect.png)
 	
 	And, the redirect url can be found in lookup api's response header。
 	
-	![mac_location](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_location.png?imageMogr2/format/tpg)
+	![mac_location](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_location.png)
 
 
 
@@ -163,7 +163,7 @@ Linux has many commands that can be called in the termincal directly, because sy
 	
 4.	Test this command like 	
 
-	![mac_query](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_local.png?imageMogr2/format/tpg)
+	![mac_query](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_local.png)
 	
 	
 ##### Method 2: using *python setup.py install*
@@ -184,4 +184,4 @@ Linux has many commands that can be called in the termincal directly, because sy
 
 3. Test this command like:
 
-	![mac_setup](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_setup.png?imageMogr2/format/tpg)
+	![mac_setup](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_setup.png)
