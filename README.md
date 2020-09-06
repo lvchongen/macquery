@@ -1,6 +1,88 @@
 # Mac address lookup API
 
 
+### Usage
+
+##### Command Line 
+
+The queryMac.py is used python3, so if you want to run it in your real environment. You need to install python3 and required libs.
+
+```
+
+git clone https://github.com/lvchongen/macquery.git
+
+cd macquery
+
+pip install -r ./requirement.txt
+
+python queryMac.py mac-address  # like 44:38:39:ff:ef:57
+```
+
+After running the scripts and pass the mac-address, it would give up results as below:
+
+![mac_real_result](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_real_result.png)
+
+
+##### Virtual Python Environment
+
+If you want to use virtual environment, please install the [virtualenv](https://pypi.org/project/virtualenv/) firstly. 
+
+```
+
+git clone https://github.com/lvchongen/macquery.git
+
+virtualenv -p python3 ./venv3
+
+source ./venv3/bin/activate
+
+cd macquery
+
+pip install -r ./requirement.txt
+
+python queryMac.py mac-address  # like 44:38:39:ff:ef:57
+
+```
+
+
+##### Docker Container Execution
+
+If you want to query mac-address by using docker. I package this script into the docker image. The dockerfile is below:
+
+```
+FROM python:3.7
+
+MAINTAINER chlv lvchongen@gmail.com
+
+ADD queryMac.py /
+
+RUN pip install requests
+
+RUN pip install beautifulsoup4
+
+ENTRYPOINT [ "python", "/queryMac.py"]
+```
+
+
+You can build this image and start container to do mac-address query:
+
+```
+git clone https://github.com/lvchongen/macquery.git
+
+cd macquery
+
+docker build -t testpython .     # You c gan use different tag for docker image
+ 
+docker run --rm testpython:latest mac-address  # like 44:38:39:ff:ef:57
+
+```
+
+After running the container it would give us results and delete the unused container.
+
+![mac_docker](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_docker.png)
+
+
+
+
 
 ### Background
 
@@ -14,7 +96,7 @@ People can access the website [macaddress.io](https://macaddress.io) and search 
 
 	![mac_info](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_info.png)
 	
-	
+	 
 	
 ### Interface analysis
 
