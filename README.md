@@ -115,10 +115,9 @@ People can access the website [macaddress.io](https://macaddress.io) and search 
 	![mac_source](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_source.png)
 	
 3. From a safety perspective, the backend should know whether the request has permission. In this website the cookie is the major key. We can get the cookie infomation from first response header as below.
-	
-	![mac_cookie](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_cookie.png)
 
-	
+  ![mac_cookie](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_cookie.png)
+
 4. After accessing the API **mac-address-lookup**, browser will navigate to redirected url that contains the search results. The status code of http is used to describe the redirect。
 
 	![mac_redirect](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-05-mac_redirect.png)
@@ -155,10 +154,11 @@ Linux has many commands that can be called in the termincal directly, because sy
 	
 2. Change the permission of python script file.
 
-	```
-	cp queryMac.py queryTool.py
-	
-	chmod +x quertTool.py
+  ```
+  cp queryMac.py queryTool.py
+  
+  chmod +x quertTool.py
+  ```
 
 3. Link the script to path `/usr/local/bin`:
 
@@ -188,3 +188,16 @@ Linux has many commands that can be called in the termincal directly, because sy
 3. Test this command like:
 
 	![mac_setup](https://lvchongen-1255888772.cos.ap-chengdu.myqcloud.com/2020-09-06-mac_setup.png)
+
+
+
+
+
+### Security analysis
+
+
+
+1. The token is refreshed by every visiting the page. 
+2. This query api doesn't need user login system, so there is no username/password in process of requesting.
+3. Need to add api request for performance testing. Under high concurrency, maybe the server need to add load balance.
+4. The mac-address may be private information of customers, so it would add permission for querying.
